@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhagyshree Dangle — AI Operations & Workflow Specialist</title>
+<meta name="description" content="Evaluation, automation design, and stakeholder ops — three working AI prototypes plus automations already shipped in production.">
+<meta property="og:title" content="Bhagyshree Dangle — AI Operations & Workflow Specialist">
+<meta property="og:description" content="Evaluation, automation design, and stakeholder ops — three working AI prototypes plus automations already shipped in production.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2315181D'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%231F8A82' stroke-width='2.5'/%3E%3C/svg%3E">
+<!--
+  NOTE TO BUGS — not visible to site visitors, source-only:
+  1. "Working prototype" status is accurate: each demo below ran for real against
+     the sample input shown, using the exact prompt shown. Don't upgrade this
+     language to "deployed in production" or add measured business metrics
+     (hours saved, % accuracy at scale, tickets processed) unless you've actually
+     run it against a real, larger batch and measured it yourself.
+  2. "Shipped in production" section lists only the 3 automations you've already
+     confirmed as genuine across past sessions. Don't add anything to that
+     section that isn't true to that same standard.
+  3. Add resume.pdf to the repo root — the Résumé links point to ./resume.pdf.
+  4. Email and LinkedIn below are pulled from your account history
+     (bhagyshreed12@gmail.com / linkedin.com/in/bhagyshree-dangle). Double-check
+     both are still current before this goes live.
+  5. You already have a live portfolio at bhagyshree-dangle.github.io with
+     Sample 06/07 (worked AI evaluation, governance checklist) from earlier
+     sessions — decide if this replaces that repo's index.html or sits
+     alongside it; your call, not assumed here.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15181D; --ink-soft:#1E2228; --ink-line:#2B3038;
+    --paper:#EFEAD9; --paper-soft:#F6F2E4; --paper-line:#DCD5BE;
+    --ink-text:#21241F; --shell-text:#E9E4D6;
+    --muted:#8C8473; --muted-shell:#7C828D;
+    --teal:#1F8A82; --teal-soft:#E4F1EE;
+    --rust:#C1561F; --rust-soft:#F7E6DA;
+    --amber:#B8790A; --amber-soft:#F4E7CC;
+    --radius:10px; --maxw:1040px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--ink); color:var(--shell-text); font-family:'IBM Plex Sans',sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0; font-weight:600; letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important; transition:none !important;}}
+
+  .statusbar{position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:10px; padding:10px 24px; background:var(--ink-soft); border-bottom:1px solid var(--ink-line); font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted-shell); overflow-x:auto; white-space:nowrap;}
+  .statusbar__dot{width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 0 rgba(31,138,130,0.6); animation:pulse 2.4s infinite; flex:0 0 auto;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,138,130,0.45);} 70%{box-shadow:0 0 0 6px rgba(31,138,130,0);} 100%{box-shadow:0 0 0 0 rgba(31,138,130,0);}}
+  .statusbar__sep{color:var(--ink-line);}
+  .statusbar__view{color:var(--paper); margin-left:auto;}
+
+  .shell-section{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+
+  .hero{padding:88px 0 56px;}
+  .hero__eyebrow{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); margin-bottom:18px; display:flex; align-items:center; gap:8px;}
+  .hero__eyebrow::before{content:"//"; color:var(--muted-shell);}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.4rem); line-height:1.1; color:var(--paper); max-width:760px;}
+  .hero h1 em{font-style:normal; color:var(--teal);}
+  .hero__sub{margin-top:22px; max-width:600px; font-size:1.06rem; line-height:1.6; color:var(--muted-shell);}
+  .hero__meta{margin-top:28px; display:flex; flex-wrap:wrap; gap:18px; font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--muted-shell);}
+  .hero__meta b{color:var(--paper); font-weight:500;}
+  .hero__meta a{color:var(--teal); text-decoration:none; border-bottom:1px solid var(--teal); padding-bottom:1px;}
+  .hero__meta a:hover{color:var(--paper); border-color:var(--paper);}
+
+  .hero__grid{margin-top:48px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .hero__card{background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:var(--radius); padding:18px; text-decoration:none; display:block; transition:border-color .2s ease, transform .2s ease;}
+  .hero__card:hover{border-color:var(--teal); transform:translateY(-2px);}
+  .hero__card-id{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--teal); letter-spacing:0.05em;}
+  .hero__card-title{margin-top:8px; font-size:1rem; font-weight:600; color:var(--paper); font-family:'Space Grotesk',sans-serif; line-height:1.3;}
+  .hero__card-tools{margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--muted-shell);}
+
+  .strip{padding:40px 0 56px; border-bottom:1px solid var(--ink-line);}
+  .strip__bio{max-width:680px; font-size:1rem; line-height:1.7; color:var(--muted-shell);}
+  .strip__bio b{color:var(--paper); font-weight:500;}
+  .stack{margin-top:30px; display:flex; flex-wrap:wrap; gap:8px;}
+  .stack__chip{font-family:'IBM Plex Mono',monospace; font-size:0.74rem; padding:7px 12px; border-radius:999px; border:1px solid var(--ink-line); color:var(--muted-shell); letter-spacing:0.02em;}
+
+  .shipped{padding:56px 0; border-bottom:1px solid var(--ink-line);}
+  .shipped__grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:14px;}
+  .shipped__card{background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:var(--radius); padding:16px 16px 14px;}
+  .shipped__status{display:flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:0.66rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--teal);}
+  .shipped__status::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--teal); flex:0 0 auto;}
+  .shipped__title{margin-top:9px; font-family:'Space Grotesk',sans-serif; font-size:0.96rem; font-weight:600; color:var(--paper); line-height:1.3;}
+  .shipped__desc{margin-top:8px; font-size:0.82rem; color:var(--muted-shell); line-height:1.6;}
+  .shipped__tools{margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:0.66rem; color:var(--muted-shell); letter-spacing:0.02em;}
+
+  .protointro{padding:56px 0 8px;}
+  .protointro p{max-width:680px; color:var(--muted-shell); font-size:1rem; line-height:1.75;}
+  .protointro b{color:var(--paper); font-weight:500;}
+
+  .entry{padding:64px 0; border-bottom:1px solid var(--ink-line); opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  .entry.is-visible{opacity:1; transform:translateY(0);}
+  .entry__head{display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px;}
+  .entry__id{font-family:'IBM Plex Mono',monospace; font-size:0.82rem; color:var(--teal); letter-spacing:0.04em;}
+  .entry__status{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--teal); border:1px solid var(--teal); border-radius:999px; padding:3px 10px;}
+  .entry h2{font-size:clamp(1.45rem,2.5vw,2rem); color:var(--paper); margin:8px 0 14px; max-width:620px;}
+  .entry__dek{color:var(--muted-shell); font-size:1.01rem; line-height:1.65; max-width:640px; margin-bottom:8px;}
+  .entry__meta{display:flex; flex-wrap:wrap; gap:14px; margin:18px 0 34px; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--muted-shell);}
+  .entry__meta span b{color:var(--paper); font-weight:500;}
+
+  .block{margin-bottom:36px;}
+  .block__label{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-shell); margin-bottom:14px; display:flex; align-items:center; gap:10px;}
+  .block__label::after{content:""; flex:1; height:1px; background:var(--ink-line);}
+  .block p{color:var(--muted-shell); line-height:1.75; font-size:0.98rem; max-width:680px;}
+  .block p + p{margin-top:12px;}
+
+  .diagram-panel{background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:var(--radius); padding:22px 18px 16px; background-image:radial-gradient(circle, var(--ink-line) 1px, transparent 1px); background-size:18px 18px;}
+  .diagram-panel svg{width:100%; height:auto; display:block;}
+  .diagram-cap{margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--muted-shell); letter-spacing:0.02em;}
+  .diagram-note{margin-top:8px; font-size:0.82rem; color:var(--muted); line-height:1.6; max-width:640px;}
+
+  .prompt-block{background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:var(--radius); padding:16px 18px;}
+  .prompt-block__tag{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--teal); margin-bottom:10px; display:block;}
+  .prompt-block pre{margin:0; font-family:'IBM Plex Mono',monospace; font-size:0.82rem; line-height:1.65; color:#CFE9E5; white-space:pre-wrap;}
+
+  .demo{border:1px solid var(--ink-line); border-radius:var(--radius); overflow:hidden;}
+  .demo__tabs{display:flex; background:var(--ink-soft); border-bottom:1px solid var(--ink-line);}
+  .demo__tab{flex:1; padding:11px 10px; background:none; border:none; cursor:pointer; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.03em; color:var(--muted-shell); border-bottom:2px solid transparent;}
+  .demo__tab:hover{color:var(--paper);}
+  .demo__tab.is-active{color:var(--teal); border-bottom-color:var(--teal);}
+  .demo__body{background:var(--ink-soft); padding:20px;}
+  .demo__pane[hidden]{display:none;}
+  .demo__inputlabel, .demo__outputlabel{font-family:'IBM Plex Mono',monospace; font-size:0.66rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-shell); margin-bottom:8px;}
+  .demo__input{background:var(--ink); border:1px solid var(--ink-line); border-radius:8px; padding:13px 14px; font-family:'IBM Plex Mono',monospace; font-size:0.82rem; color:var(--shell-text); line-height:1.6; margin-bottom:18px;}
+  .demo__arrow{text-align:center; color:var(--teal); font-size:0.9rem; margin-bottom:14px; font-family:'IBM Plex Mono',monospace;}
+
+  .result-card{background:var(--paper); border:1px solid var(--paper-line); border-radius:8px; padding:4px 0; overflow:hidden;}
+  .result-row{display:grid; grid-template-columns:140px 1fr; gap:10px; padding:10px 16px; border-bottom:1px solid var(--paper-line); align-items:start;}
+  .result-row:last-child{border-bottom:none;}
+  .result-row__k{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted); padding-top:2px;}
+  .result-row__v{font-size:0.9rem; color:var(--ink-text); line-height:1.55;}
+  .result-row__v em{font-style:normal; color:var(--muted); font-size:0.82rem;}
+
+  .pill{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.66rem; letter-spacing:0.03em; padding:3px 9px; border-radius:999px; font-weight:500;}
+  .pill--hi{background:var(--rust-soft); color:var(--rust);}
+  .pill--mid{background:var(--amber-soft); color:var(--amber);}
+  .pill--lo{background:var(--teal-soft); color:var(--teal);}
+  .pill--done{background:var(--teal-soft); color:var(--teal);}
+
+  .auditsrc{background:var(--paper); border:1px solid var(--paper-line); border-radius:8px; padding:13px 15px; font-size:0.85rem; color:var(--ink-text); line-height:1.6; margin-bottom:16px;}
+  .auditsrc b{display:block; font-family:'IBM Plex Mono',monospace; font-size:0.64rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); margin-bottom:6px; font-weight:500;}
+  .claim{background:var(--paper); border:1px solid var(--paper-line); border-radius:8px; padding:13px 15px; margin-bottom:10px;}
+  .claim:last-child{margin-bottom:0;}
+  .claim__head{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:6px;}
+  .claim__text{font-size:0.88rem; color:var(--ink-text); line-height:1.55;}
+  .claim__note{font-size:0.8rem; color:var(--muted); line-height:1.55; margin-top:4px;}
+
+  .ptable{width:100%; border-collapse:collapse; background:var(--paper); border:1px solid var(--paper-line); border-radius:8px; overflow:hidden;}
+  .ptable th{text-align:left; font-family:'IBM Plex Mono',monospace; font-size:0.64rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); padding:9px 13px; border-bottom:1px solid var(--paper-line); background:var(--paper-soft);}
+  .ptable td{padding:10px 13px; font-size:0.83rem; color:var(--ink-text); border-bottom:1px solid var(--paper-line);}
+  .ptable tr:last-child td{border-bottom:none;}
+
+  .technotes{list-style:none; margin:0; padding:0; display:grid; gap:11px; max-width:680px;}
+  .technotes li{font-size:0.88rem; color:var(--muted-shell); line-height:1.65; padding-left:20px; position:relative;}
+  .technotes li::before{content:"›"; position:absolute; left:0; top:0; color:var(--teal); font-family:'IBM Plex Mono',monospace; font-weight:600;}
+  .technotes b{color:var(--paper); font-weight:500;}
+
+  .closing{padding:60px 0 48px;}
+  .closing__tag{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.08em; color:var(--muted-shell); margin-bottom:16px;}
+  .closing h2{color:var(--paper); font-size:clamp(1.45rem,2.8vw,2rem); max-width:520px; margin-bottom:22px;}
+  .closing__links{display:flex; flex-wrap:wrap; gap:22px; margin-top:8px;}
+  .closing__links a{font-family:'IBM Plex Mono',monospace; font-size:0.84rem; color:var(--paper); text-decoration:none; border-bottom:1px solid var(--ink-line); padding-bottom:3px;}
+  .closing__links a:hover{border-color:var(--teal); color:var(--teal);}
+  .closing__foot{margin-top:44px; padding-top:18px; border-top:1px solid var(--ink-line); font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--ink-line);}
+
+  @media (max-width:760px){
+    .hero{padding:64px 0 40px;}
+    .hero__grid{grid-template-columns:1fr;}
+    .shipped__grid{grid-template-columns:1fr;}
+    .demo__tabs{flex-direction:column;}
+    .result-row{grid-template-columns:110px 1fr;}
+    .statusbar{font-size:0.66rem; padding:9px 16px;}
+    .statusbar__view{display:none;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="statusbar mono">
+    <span class="statusbar__dot"></span>
+    <span>SYSTEM ONLINE</span>
+    <span class="statusbar__sep">/</span>
+    <span>B. DANGLE — AI OPERATIONS</span>
+    <span class="statusbar__sep">/</span>
+    <span>DUBAI, UAE</span>
+    <span class="statusbar__view mono" id="viewing">VIEWING: OVERVIEW</span>
+  </div>
+
+  <header class="hero shell-section">
+    <div class="hero__eyebrow">AI operations · evaluation · automation design</div>
+    <h1>I turn AI tools into something an operations team can actually <em>trust and run</em>.</h1>
+    <p class="hero__sub">
+      Three working prototypes below — a triage copilot, a quality/hallucination auditor, and a document extraction
+      bot — each one built, prompted, and run against real sample inputs so the output you see is genuine model
+      reasoning, not a description of one.
+    </p>
+    <div class="hero__meta">
+      <span><b>Bhagyshree "Bugs" Dangle</b></span>
+      <span>AI Operations &amp; Workflow Specialist</span>
+      <span>Al Furjan, Dubai</span>
+      <span><a href="mailto:bhagyshreed12@gmail.com">bhagyshreed12@gmail.com</a></span>
+      <span><a href="https://www.linkedin.com/in/bhagyshree-dangle/" target="_blank" rel="noopener">LinkedIn</a></span>
+      <span><a href="./resume.pdf">Résumé ↓</a></span>
+    </div>
+
+    <div class="hero__grid">
+      <a class="hero__card" href="#proto-01">
+        <div class="hero__card-id">PROTO-01 · WORKING</div>
+        <div class="hero__card-title">Inbox Triage &amp; Auto-Draft Copilot</div>
+        <div class="hero__card-tools">Claude API · n8n-ready · Airtable-ready</div>
+      </a>
+      <a class="hero__card" href="#proto-02">
+        <div class="hero__card-id">PROTO-02 · WORKING</div>
+        <div class="hero__card-title">AI Output Quality &amp; Hallucination Auditor</div>
+        <div class="hero__card-tools">Claude API · Citation-forced scoring</div>
+      </a>
+      <a class="hero__card" href="#proto-03">
+        <div class="hero__card-id">PROTO-03 · WORKING</div>
+        <div class="hero__card-title">Travel Document Extraction Bot</div>
+        <div class="hero__card-tools">Claude API · Structured extraction</div>
+      </a>
+    </div>
+  </header>
+
+  <section class="strip shell-section">
+    <p class="strip__bio">
+      10+ years in operations — quality assurance, CRM ops, executive and stakeholder support — now applied to the
+      layer most teams skip when they adopt AI: <b>deciding when an AI output is good enough to act on, and building
+      the routing around it so it doesn't depend on one person remembering to check.</b> The prototypes below are
+      mine, run on synthetic sample data, not employer data.
+    </p>
+    <div class="stack">
+      <span class="stack__chip">Claude / Anthropic API</span>
+      <span class="stack__chip">ChatGPT</span>
+      <span class="stack__chip">Microsoft Copilot</span>
+      <span class="stack__chip">n8n</span>
+      <span class="stack__chip">Zapier</span>
+      <span class="stack__chip">Power Automate</span>
+      <span class="stack__chip">Airtable</span>
+      <span class="stack__chip">Notion</span>
+      <span class="stack__chip">Slack</span>
+      <span class="stack__chip">Google Workspace</span>
+    </div>
+  </section>
+
+  <section class="shipped shell-section">
+    <div class="block__label">// Shipped in production — already running, not demos</div>
+    <div class="shipped__grid">
+      <div class="shipped__card">
+        <div class="shipped__status">Freelance · 2021–2024</div>
+        <div class="shipped__title">Client Onboarding Automation</div>
+        <div class="shipped__desc">A Calendly booking triggered a Zapier flow that logged client details into Airtable and notified the team in Slack — replaced a fully manual intake process.</div>
+        <div class="shipped__tools">CALENDLY · ZAPIER · AIRTABLE · SLACK</div>
+      </div>
+      <div class="shipped__card">
+        <div class="shipped__status">Job-search pipeline</div>
+        <div class="shipped__title">LinkedIn Outreach Automation</div>
+        <div class="shipped__desc">Automated connection requests and follow-up sequencing for a structured networking and job-search outreach pipeline.</div>
+        <div class="shipped__tools">LINKEDIN HELPER · SEQUENCING</div>
+      </div>
+      <div class="shipped__card">
+        <div class="shipped__status">Current role</div>
+        <div class="shipped__title">Meeting Summary &amp; Action-Item Pipeline</div>
+        <div class="shipped__desc">Turns leadership meeting transcripts into structured summaries and routed action items — built and run for C-Suite leadership meetings.</div>
+        <div class="shipped__tools">N8N · MICROSOFT COPILOT · CLAUDE · NOTION</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="protointro shell-section">
+    <div class="block__label">// Working prototypes — built and run on sample data</div>
+    <p>
+      The three below are <b>working prototypes</b>, not deployed business systems — I designed the prompt, ran it
+      against the sample input shown, and the output is the real result. Each one is built to plug into a no-code
+      pipeline (n8n / Zapier / Power Automate → Airtable or Notion → Slack) for the orchestration layer; that wiring
+      is designed and ready, the reasoning core is what's actually running below.
+    </p>
+  </section>
+
+  <main>
+
+    <!-- ================= PROTO-01 ================= -->
+    <article class="entry shell-section" id="proto-01" data-view="PROTO-01 / TRIAGE COPILOT">
+      <div class="entry__head">
+        <span class="entry__id mono">PROTO-01</span>
+        <span class="entry__status mono">WORKING PROTOTYPE</span>
+      </div>
+      <h2>Inbox Triage &amp; Auto-Draft Copilot</h2>
+      <p class="entry__dek">
+        Reads an inbound ops request, classifies it by category and business-impact urgency (not tone), flags
+        sentiment, and drafts a reply a reviewer can send with light editing instead of writing from scratch.
+      </p>
+      <div class="entry__meta">
+        <span>CORE: <b>Claude API, single prompt</b></span>
+        <span>DESIGNED FOR: <b>n8n / Power Automate webhook → Airtable → Slack</b></span>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Problem</div>
+        <p>
+          Every inbound request — IT, HR, finance, vendor, facilities — gets read, categorized, and prioritized by a
+          person before anything happens, and urgency calls are inconsistent depending on who's triaging that day.
+        </p>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Designed integration</div>
+        <div class="diagram-panel">
+          <svg viewBox="0 0 900 170" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7C828D"/></marker></defs>
+            <path d="M95,85 C155,85 155,85 205,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a1)"/>
+            <path d="M285,85 C345,85 345,85 405,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a1)"/>
+            <path d="M485,85 C545,85 545,85 605,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a1)"/>
+            <path d="M685,85 C730,85 730,85 770,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a1)"/>
+            <g><circle cx="55" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="55" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">Form</text><text x="55" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">INTAKE</text></g>
+            <g><circle cx="245" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="245" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">n8n</text><text x="245" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">WEBHOOK</text></g>
+            <g><circle cx="445" cy="85" r="32" fill="#1E2228" stroke="#1F8A82" stroke-width="2.5"/><text x="445" y="90" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">Claude</text><text x="445" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1F8A82">RUNNING NOW ↓</text></g>
+            <g><circle cx="645" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="645" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">Airtable</text><text x="645" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">LOG</text></g>
+            <g><circle cx="825" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="825" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">Slack</text><text x="825" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">ALERT</text></g>
+          </svg>
+        </div>
+        <div class="diagram-cap mono">FORM → N8N WEBHOOK → CLAUDE (CLASSIFY + DRAFT) → AIRTABLE LOG → SLACK ALERT</div>
+        <p class="diagram-note">The Claude step is what's actually running below. The form intake and Airtable/Slack legs are the designed integration — not connected to a live tool yet.</p>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Prompt used</div>
+        <div class="prompt-block">
+          <span class="prompt-block__tag mono">SYSTEM</span>
+          <pre>You are an operations triage assistant.
+For the message below, output:
+1) Category — IT/Facilities, HR/Policy, Finance/Payroll, Vendor/Procurement, or Other
+2) Urgency 1-5 — anchor to business impact, not tone.
+   5 = blocks payroll, payment, or a live commitment today. 1 = no deadline.
+3) Sentiment — one or two words
+4) A 2-3 sentence draft reply: acknowledge the issue, give a concrete next step.
+
+Message: {input}</pre>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Example runs — real output for the input shown</div>
+        <div class="demo">
+          <div class="demo__tabs">
+            <button class="demo__tab is-active" data-target="t1-1">Calm but critical</button>
+            <button class="demo__tab" data-target="t1-2">Low priority</button>
+            <button class="demo__tab" data-target="t1-3">Genuinely urgent</button>
+          </div>
+          <div class="demo__body">
+            <div class="demo__pane" id="t1-1">
+              <div class="demo__inputlabel mono">Input</div>
+              <div class="demo__input">"Hi team, the printer on the 14th floor has been jammed since yesterday and IT hasn't responded. Not urgent but it's piling up paperwork."</div>
+              <div class="demo__arrow">↓ claude</div>
+              <div class="result-card">
+                <div class="result-row"><div class="result-row__k">Category</div><div class="result-row__v">Facilities / IT</div></div>
+                <div class="result-row"><div class="result-row__k">Urgency</div><div class="result-row__v"><span class="pill pill--lo">2 — Low-moderate</span> <em>inconvenient, no business deadline at risk</em></div></div>
+                <div class="result-row"><div class="result-row__k">Sentiment</div><div class="result-row__v">Mildly frustrated</div></div>
+                <div class="result-row"><div class="result-row__k">Draft reply</div><div class="result-row__v">"Thanks for flagging this, and sorry for the delay — I've logged a fresh ticket with IT/Facilities for the 14th floor printer and asked for same-day attention. I'll follow up by end of day if it's still down."</div></div>
+              </div>
+            </div>
+            <div class="demo__pane" id="t1-2" hidden>
+              <div class="demo__inputlabel mono">Input</div>
+              <div class="demo__input">"Could someone share the updated travel expense policy? I want to check per diem rates before submitting my claim."</div>
+              <div class="demo__arrow">↓ claude</div>
+              <div class="result-card">
+                <div class="result-row"><div class="result-row__k">Category</div><div class="result-row__v">HR / Policy</div></div>
+                <div class="result-row"><div class="result-row__k">Urgency</div><div class="result-row__v"><span class="pill pill--lo">1 — Low</span> <em>informational, no deadline</em></div></div>
+                <div class="result-row"><div class="result-row__k">Sentiment</div><div class="result-row__v">Neutral, curious</div></div>
+                <div class="result-row"><div class="result-row__k">Draft reply</div><div class="result-row__v">"Happy to help — I'll send over the latest travel &amp; expense policy with current per diem rates today, so you have it before submitting your claim."</div></div>
+              </div>
+            </div>
+            <div class="demo__pane" id="t1-3" hidden>
+              <div class="demo__inputlabel mono">Input</div>
+              <div class="demo__input">"URGENT — the payroll batch upload to the bank portal failed again this morning, salaries won't be credited today unless this is fixed in the next 2 hours."</div>
+              <div class="demo__arrow">↓ claude</div>
+              <div class="result-card">
+                <div class="result-row"><div class="result-row__k">Category</div><div class="result-row__v">Finance / Payroll</div></div>
+                <div class="result-row"><div class="result-row__k">Urgency</div><div class="result-row__v"><span class="pill pill--hi">5 — Critical</span> <em>blocks salary payment today</em></div></div>
+                <div class="result-row"><div class="result-row__k">Sentiment</div><div class="result-row__v">Urgent, high-stress</div></div>
+                <div class="result-row"><div class="result-row__k">Draft reply</div><div class="result-row__v">"Escalating this immediately to Finance and IT as a P1 — salary payment risk today. I'll confirm within the hour whether the upload can be retried before the bank cut-off, and will update you as soon as I have a resolution time."</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Design notes</div>
+        <ul class="technotes">
+          <li><b>Urgency is anchored to business impact, not tone</b> — note the calmly-worded printer complaint scores low while the calmly-worded payroll outage still scores 5.</li>
+          <li><b>The draft reply always names a concrete next step</b> (a person, a timeframe) rather than a generic "we'll look into it," so a reviewer can send it with minimal editing.</li>
+          <li><b>Built to sit behind whatever intake a team already has</b> — Microsoft Forms or Google Forms into Power Automate or n8n — rather than requiring a new tool.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ================= PROTO-02 ================= -->
+    <article class="entry shell-section" id="proto-02" data-view="PROTO-02 / QUALITY AUDITOR">
+      <div class="entry__head">
+        <span class="entry__id mono">PROTO-02</span>
+        <span class="entry__status mono">WORKING PROTOTYPE</span>
+      </div>
+      <h2>AI Output Quality &amp; Hallucination Auditor</h2>
+      <p class="entry__dek">
+        Checks an AI-generated answer against its source text claim by claim, before it reaches a customer or
+        stakeholder — and tells the difference between a loose approximation and a genuine hallucination.
+      </p>
+      <div class="entry__meta">
+        <span>CORE: <b>Claude API, citation-forced scoring</b></span>
+        <span>DESIGNED FOR: <b>Pre-send check on any customer-facing AI reply</b></span>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Problem</div>
+        <p>
+          Once a team uses AI to draft customer replies or policy answers, someone has to decide whether each
+          answer is actually true to the source before it goes out — and "it reads fine" isn't a check, it's a guess.
+        </p>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Designed integration</div>
+        <div class="diagram-panel">
+          <svg viewBox="0 0 900 170" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7C828D"/></marker></defs>
+            <path d="M95,85 C155,85 155,85 205,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a2)"/>
+            <path d="M285,85 C345,85 345,85 405,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a2)"/>
+            <path d="M485,85 C545,85 545,85 605,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a2)"/>
+            <path d="M685,85 C730,85 730,85 770,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a2)"/>
+            <g><circle cx="55" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="55" y="83" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#E9E4D6">Draft</text><text x="55" y="96" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#E9E4D6">reply</text><text x="55" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">AI OUTPUT</text></g>
+            <g><circle cx="245" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="245" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">Source</text><text x="245" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">DOCUMENT</text></g>
+            <g><circle cx="445" cy="85" r="32" fill="#1E2228" stroke="#1F8A82" stroke-width="2.5"/><text x="445" y="83" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#E9E4D6">Claude</text><text x="445" y="96" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#E9E4D6">audit</text><text x="445" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1F8A82">RUNNING NOW ↓</text></g>
+            <g><circle cx="645" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="645" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">Sheet</text><text x="645" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">LOG</text></g>
+            <g><circle cx="825" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="825" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">Reviewer</text><text x="825" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">IF FLAGGED</text></g>
+          </svg>
+        </div>
+        <div class="diagram-cap mono">AI OUTPUT + SOURCE DOC → CLAUDE (CLAIM-BY-CLAIM AUDIT) → LOG → HUMAN REVIEW IF FLAGGED</div>
+        <p class="diagram-note">The audit step is what's actually running below. The sheet log and reviewer routing are the designed integration.</p>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Prompt used</div>
+        <div class="prompt-block">
+          <span class="prompt-block__tag mono">SYSTEM</span>
+          <pre>You are auditing an AI-generated answer against a source document.
+Break the answer into individual factual claims.
+For each claim, quote the exact source line that supports it.
+If no source line supports a claim, mark it unsupported — regardless
+of how confident or plausible it sounds. Distinguish a loose
+approximation (close to the source, imprecise wording) from a
+genuine hallucination (no basis in the source at all).
+
+Source: {source}
+AI-generated answer: {answer}</pre>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Example run — real output for the input shown</div>
+        <div class="auditsrc">
+          <b>Source document</b>
+          "Refund Policy (internal): Approved refunds are processed within 5 business days. Any refund above $200 requires manager sign-off before processing. Refunds are issued to the original payment method only."
+        </div>
+        <div class="auditsrc">
+          <b>AI-generated answer being audited</b>
+          "Refunds usually take about a week to process, and customers can choose to receive store credit instead if they prefer."
+        </div>
+        <div class="claim">
+          <div class="claim__head"><div class="claim__text">Claim 1 — "about a week to process"</div><span class="pill pill--mid">Approximation</span></div>
+          <div class="claim__note">Source says 5 business days, which is roughly a week — imprecise but not unsupported. Low risk; worth tightening for accuracy, not blocking.</div>
+        </div>
+        <div class="claim">
+          <div class="claim__head"><div class="claim__text">Claim 2 — "can choose to receive store credit instead"</div><span class="pill pill--hi">Hallucination</span></div>
+          <div class="claim__note">Source explicitly states refunds go to the original payment method only. No mention of store credit anywhere — this is a confident, fabricated claim. High risk: would mislead a customer about a real option that doesn't exist.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Design notes</div>
+        <ul class="technotes">
+          <li><b>Forces a citation before scoring</b> — the model has to point at the exact source line behind every claim, which is what catches claim 2 above instead of letting confident phrasing pass as trustworthy.</li>
+          <li><b>Separates approximation from hallucination on purpose</b> — they're not the same risk, and treating them the same wastes a reviewer's attention on the wrong issue.</li>
+          <li><b>Built as a pre-send check, not a post-incident one</b> — designed to sit in front of any customer-facing AI reply, not to audit complaints after the fact.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ================= PROTO-03 ================= -->
+    <article class="entry shell-section" id="proto-03" data-view="PROTO-03 / EXTRACTION BOT">
+      <div class="entry__head">
+        <span class="entry__id mono">PROTO-03</span>
+        <span class="entry__status mono">WORKING PROTOTYPE</span>
+      </div>
+      <h2>Travel Document Extraction Bot</h2>
+      <p class="entry__dek">
+        Pulls structured fields out of messy, inconsistently-formatted booking confirmations — built after doing this
+        by hand for a 16-traveler conference trip and deciding it was the first thing worth automating.
+      </p>
+      <div class="entry__meta">
+        <span>CORE: <b>Claude API, structured extraction</b></span>
+        <span>DESIGNED FOR: <b>Feeding a multi-traveler itinerary tracker automatically</b></span>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Problem</div>
+        <p>
+          Flight and hotel confirmations never arrive in one format — different airlines, different booking tools,
+          different word order — so building a group itinerary tracker means re-reading every confirmation by hand
+          and typing the same eight fields out one at a time, every time.
+        </p>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Designed integration</div>
+        <div class="diagram-panel">
+          <svg viewBox="0 0 900 170" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7C828D"/></marker></defs>
+            <path d="M95,85 C155,85 155,85 205,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a3)"/>
+            <path d="M285,85 C345,85 345,85 405,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a3)"/>
+            <path d="M485,85 C545,85 545,85 605,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a3)"/>
+            <path d="M685,85 C730,85 730,85 770,85" stroke="#7C828D" stroke-width="1.5" fill="none" marker-end="url(#a3)"/>
+            <g><circle cx="55" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="55" y="83" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#E9E4D6">Booking</text><text x="55" y="96" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#E9E4D6">email/PDF</text><text x="55" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">INPUT</text></g>
+            <g><circle cx="245" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="245" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">n8n</text><text x="245" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">TRIGGER</text></g>
+            <g><circle cx="445" cy="85" r="32" fill="#1E2228" stroke="#1F8A82" stroke-width="2.5"/><text x="445" y="83" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#E9E4D6">Claude</text><text x="445" y="96" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#E9E4D6">extract</text><text x="445" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1F8A82">RUNNING NOW ↓</text></g>
+            <g><circle cx="645" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="645" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">Sheet</text><text x="645" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">TRACKER</text></g>
+            <g><circle cx="825" cy="85" r="32" fill="#1E2228" stroke="#7C828D" stroke-width="1.5"/><text x="825" y="89" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#E9E4D6">Slack</text><text x="825" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7C828D">IF MISSING FIELD</text></g>
+          </svg>
+        </div>
+        <div class="diagram-cap mono">BOOKING TEXT → N8N → CLAUDE (STRUCTURED EXTRACTION) → TRACKER ROW → SLACK IF A FIELD IS MISSING</div>
+        <p class="diagram-note">The extraction step is what's actually running below. The trigger, tracker, and Slack legs are the designed integration.</p>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Prompt used</div>
+        <div class="prompt-block">
+          <span class="prompt-block__tag mono">SYSTEM</span>
+          <pre>Extract these fields from the booking text below, regardless of
+its format or field order: Passenger, Booking Reference, Flight
+Number, Route (origin → destination), Departure (date, time),
+Arrival (date, time), Seat, Class/Baggage notes.
+If a field is genuinely not present, output "Not provided" —
+never guess or infer a value that isn't in the text.
+
+Booking text: {input}</pre>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Example runs — real output for the input shown</div>
+        <div class="demo">
+          <div class="demo__tabs">
+            <button class="demo__tab is-active" data-target="t3-1">Dense format</button>
+            <button class="demo__tab" data-target="t3-2">Pipe-delimited format</button>
+          </div>
+          <div class="demo__body">
+            <div class="demo__pane" id="t3-1">
+              <div class="demo__inputlabel mono">Input</div>
+              <div class="demo__input">"Booking Ref 4F7QXP — Mr. R. Shah — EK761 DXB-JNB dep 14 Jul 23:45 arr 15 Jul 08:10 — Seat 14C — Baggage 30kg checked"</div>
+              <div class="demo__arrow">↓ claude</div>
+              <table class="ptable">
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Passenger</td><td>R. Shah</td></tr>
+                <tr><td>Booking reference</td><td>4F7QXP</td></tr>
+                <tr><td>Flight</td><td>EK761</td></tr>
+                <tr><td>Route</td><td>Dubai (DXB) → Johannesburg (JNB)</td></tr>
+                <tr><td>Departure</td><td>14 Jul, 23:45</td></tr>
+                <tr><td>Arrival</td><td>15 Jul, 08:10</td></tr>
+                <tr><td>Seat</td><td>14C</td></tr>
+                <tr><td>Baggage / class</td><td>30kg checked</td></tr>
+              </table>
+            </div>
+            <div class="demo__pane" id="t3-2" hidden>
+              <div class="demo__inputlabel mono">Input</div>
+              <div class="demo__input">"Traveler: A. Khan | Conf# 9KX2LM | Emirates EK 763 | DXB to JNB | Depart 16-Jul 23:45 | Arrive 17-Jul 08:05 | Class: Economy | No seat assigned yet"</div>
+              <div class="demo__arrow">↓ claude</div>
+              <table class="ptable">
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Passenger</td><td>A. Khan</td></tr>
+                <tr><td>Booking reference</td><td>9KX2LM</td></tr>
+                <tr><td>Flight</td><td>EK763</td></tr>
+                <tr><td>Route</td><td>Dubai (DXB) → Johannesburg (JNB)</td></tr>
+                <tr><td>Departure</td><td>16 Jul, 23:45</td></tr>
+                <tr><td>Arrival</td><td>17 Jul, 08:05</td></tr>
+                <tr><td>Seat</td><td>Not provided — flag for follow-up</td></tr>
+                <tr><td>Baggage / class</td><td>Economy</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block__label">// Design notes</div>
+        <ul class="technotes">
+          <li><b>Handles inconsistent formats on purpose</b> — the two examples above use completely different field order and punctuation; the prompt finds the same eight fields either way.</li>
+          <li><b>Missing fields are flagged, never guessed</b> — example 2's unassigned seat comes back as "Not provided," not a silently invented seat number.</li>
+          <li><b>Grew directly out of doing this by hand</b> for a 16-traveler conference trip — this is the exact step I'd automate first if I rebuilt that process today.</li>
+        </ul>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="closing shell-section">
+    <div class="closing__tag mono">// END OF LOG</div>
+    <h2>Happy to run any of these live and walk through the design decisions in real time.</h2>
+    <div class="closing__links">
+      <a href="mailto:bhagyshreed12@gmail.com">bhagyshreed12@gmail.com</a>
+      <a href="https://www.linkedin.com/in/bhagyshree-dangle/" target="_blank" rel="noopener">linkedin.com/in/bhagyshree-dangle</a>
+      <a href="./resume.pdf">Résumé ↓</a>
+    </div>
+    <div class="closing__foot mono">AL FURJAN, DUBAI, UAE — LOG LAST UPDATED 23 JUN 2026</div>
+  </footer>
+
+<script>
+  (function(){
+    var viewEl = document.getElementById('viewing');
+    var sections = document.querySelectorAll('[data-view]');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ viewEl.textContent = 'VIEWING: ' + e.target.getAttribute('data-view'); } });
+      }, {rootMargin:'-40% 0px -55% 0px'});
+      sections.forEach(function(s){ io.observe(s); });
+    }
+    var entries = document.querySelectorAll('.entry');
+    if('IntersectionObserver' in window){
+      var revealIO = new IntersectionObserver(function(list, obs){
+        list.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+      }, {threshold:0.12});
+      entries.forEach(function(en){ revealIO.observe(en); });
+    } else { entries.forEach(function(en){ en.classList.add('is-visible'); }); }
+
+    // demo tab switching
+    document.querySelectorAll('.demo').forEach(function(demo){
+      var tabs = demo.querySelectorAll('.demo__tab');
+      tabs.forEach(function(tab){
+        tab.addEventListener('click', function(){
+          var target = tab.getAttribute('data-target');
+          tabs.forEach(function(t){ t.classList.remove('is-active'); });
+          tab.classList.add('is-active');
+          demo.querySelectorAll('.demo__pane').forEach(function(pane){
+            pane.hidden = (pane.id !== target);
+          });
+        });
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
